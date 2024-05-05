@@ -9,7 +9,7 @@
             :title="item.title"
             :image="item.imageUrl"
             :price="item.price"
-            :id='item.id'
+            :id="item.id"
           />
         </div>
       </div>
@@ -35,5 +35,4 @@ onMounted(async () => {
   }
 });
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>

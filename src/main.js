@@ -4,7 +4,7 @@ import App from "./App.vue";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 const pinia = createPinia();
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
@@ -22,7 +22,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 createApp(App).use(router).use(vuetify).use(pinia).mount("#app");

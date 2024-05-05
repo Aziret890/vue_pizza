@@ -8,7 +8,6 @@
           <div class="header__content__logo-img max-w-[40px]">
             <router-link to="/">
               <img src="/public/svg/logo.svg" alt="logo REACT PIZZA" />
-
             </router-link>
           </div>
           <div class="flex flex-col gap-0">
@@ -24,15 +23,15 @@
         </div>
         <div class="header__content__nav">
           <button>
-            <span>520 $</span>
+            <span>1234 $</span>
             <hr />
             <span
-              ><router-link
+              ><RouterLink
                 class="flex justify-between gap-4 items-center"
                 style="color: white"
                 to="/basket"
                 ><img src="/public/svg/basket.svg" alt="" />
-                {{ basketProduct.length }}</router-link
+                {{ basketProduct.length }}</RouterLink
               ></span
             >
           </button>
@@ -42,6 +41,7 @@
   </header>
 </template>
 <script setup>
+import { RouterLink } from "vue-router";
 import { useCounterStore } from "../store/store";
 const { basketProduct } = useCounterStore();
 </script>
