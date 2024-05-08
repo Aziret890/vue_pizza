@@ -15,7 +15,7 @@
   </v-card>
 </template>
 <script setup>
-import { defineProps, ref, watchEffect } from "vue";
+import { defineProps, ref } from "vue";
 import { useCounterStore } from "../store/store";
 const { addBasketProduct } = useCounterStore();
 const props = defineProps({
@@ -27,7 +27,7 @@ const props = defineProps({
 const isAdded = ref(false);
 function addBasketProductToStore() {
   addBasketProduct(props);
-  const storedBasket = JSON.parse(localStorage.getItem('basket'))
+  const storedBasket = JSON.parse(localStorage.getItem("basket"));
 }
 </script>
 <style lang="scss">

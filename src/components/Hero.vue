@@ -29,10 +29,8 @@
   </div>
 </template>
 <script setup>
-import { ref, watchEffect } from "vue";
 import { useCounterStore } from "../store/store";
-const { basketProduct } = useCounterStore();
-const selectedItems = ref("");
+const selectedItems = useCounterStore().selectedItems
 const items = [
   { id: 1, title: "популярности" },
   { id: 2, title: "по цене" },
@@ -46,9 +44,7 @@ const categoryItem = [
   { id: 5, title: "Острые" },
   { id: 6, title: "Закрытые" },
 ];
-watchEffect(() => {
-  console.log(basketProduct);
-});
+console.log(selectedItems, "fwggegweeggege");
 </script>
 <style lang="scss">
 .hero {
