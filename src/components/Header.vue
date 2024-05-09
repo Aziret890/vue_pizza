@@ -52,12 +52,10 @@ import { ref } from "vue";
 const { basketProduct } = useCounterStore();
 const valueInput = ref("");
 function foo() {
-  console.log(valueInput.value);
+  useCounterStore().searchData = valueInput.value;
 }
 const data = JSON.parse(localStorage.getItem("basket"));
 const allPrice = ref(data.reduce((acc, el) => acc + parseFloat(el.price), 0));
-console.log(data);
-console.log(allPrice.value);
 </script>
 <style lang="scss">
 .header__content__nav {

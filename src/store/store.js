@@ -3,6 +3,7 @@ import { ref } from "vue";
 
 export const useCounterStore = defineStore("counter", () => {
   const basketProduct = ref([]);
+  const searchData = ref("");
   const selectedItems = ref("wqwvmqe[");
   const storedBasket = localStorage.getItem("basket");
   if (storedBasket) {
@@ -13,5 +14,5 @@ export const useCounterStore = defineStore("counter", () => {
     localStorage.setItem("basket", JSON.stringify(basketProduct.value));
   }
 
-  return { basketProduct, selectedItems, addBasketProduct };
+  return { searchData, basketProduct, selectedItems, addBasketProduct };
 });

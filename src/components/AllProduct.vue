@@ -17,10 +17,10 @@
   </section>
 </template>
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watchEffect } from "vue";
 import axios from "axios";
 import ProductDetail from "./ProductDetail.vue";
-
+import { useCounterStore } from "../store/store";
 const data = ref([]);
 onMounted(async () => {
   try {
@@ -31,6 +31,14 @@ onMounted(async () => {
   } catch (error) {
     console.error(error);
   }
+});
+watchEffect(() => {
+  console.log(useCounterStore().searchData);
+  const { searchData } = useCounterStore();
+  data.value = data.value.filter((el) =>
+    el.title.toLowerCase().includes(searchData.toLowerCase())
+  );
+  console.log(data.value);
 });
 </script>
 <style lang="scss"></style>

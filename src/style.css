@@ -150,3 +150,6 @@ img:hover {
   max-width: 1225px;
   margin: 0 auto;
 }
+body::-webkit-scrollbar{
+  display: none;
+}
