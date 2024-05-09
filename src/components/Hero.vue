@@ -44,7 +44,6 @@ const categoryItem = [
   { id: 5, title: "Острые" },
   { id: 6, title: "Закрытые" },
 ];
-console.log(selectedItems, "fwggegweeggege");
 </script>
 <style lang="scss">
 .hero {
