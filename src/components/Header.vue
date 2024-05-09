@@ -18,12 +18,16 @@
         <div
           class="header__content__search flex justify-between items-center gap-2"
         >
-          <input type="text" placeholder="искать пиццу" />
-          <v-btn> искать </v-btn>
+          <input
+            @input="(event) => (valueInput = event.target.value)"
+            type="text"
+            placeholder="искать пиццу"
+          />
+          <v-btn @click="foo"> искать </v-btn>
         </div>
         <div class="header__content__nav">
           <button>
-            <span>1234 $</span>
+            <span>{{ allPrice }} $</span>
             <hr />
             <span
               ><RouterLink
@@ -43,7 +47,17 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { useCounterStore } from "../store/store";
+import { ref } from "vue";
+
 const { basketProduct } = useCounterStore();
+const valueInput = ref("");
+function foo() {
+  console.log(valueInput.value);
+}
+const data = JSON.parse(localStorage.getItem("basket"));
+const allPrice = ref(data.reduce((acc, el) => acc + parseFloat(el.price), 0));
+console.log(data);
+console.log(allPrice.value);
 </script>
 <style lang="scss">
 .header__content__nav {
